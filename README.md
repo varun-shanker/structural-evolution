@@ -52,6 +52,16 @@ Additional arguments:
 --nogpu: Do not use GPU even if available
 ```
 
+ For example, to generate mutations for the heavy chain of LYCoV-1404, we would simply run the following: 
+
+```
+python bin/recommend.py examples/7mmo_abc_fvar.pdb \
+    --chain A --seqpath examples/7mmo_chainA_lib.fasta \
+    --outpath examples/7mmo_chainA_scores.csv \
+    --upperbound 109 --offset 1
+```
+Here, we use a structure of the antigen, SARS-CoV-2 receptor binding domain (RBD), in complex with variable regions of both chains of the antibody. To return recommendations for the heavy chain, we choose chain A. The fasta containing the dms library with corresponding scores file are saved at the indicated paths. To ouptut recommendations that are before the final framework region of the variable region as described in the paper, we use the upperbound of 109 (this will change for each antibody) and since the first residue is not included in the structure, we indicate an offset of 1 so that the returned mutations are properly indexed.
+
 ## Paper analysis scripts
 
 To reproduce the analysis in the paper, first download and extract data with the commands:
