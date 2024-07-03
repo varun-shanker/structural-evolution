@@ -1,13 +1,3 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-#
-# This source code is licensed under the MIT license found in the
-# LICENSE file in the root directory of this source tree.
-#
-# Scores sequences based on a given structure.
-#
-# usage:
-# recommend.py [-h] [--outpath OUTPATH] [--chain CHAIN] pdbfile 
-
 import argparse
 from biotite.sequence.io.fasta import FastaFile, get_sequences
 import numpy as np
