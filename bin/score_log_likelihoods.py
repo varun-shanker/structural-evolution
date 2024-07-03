@@ -5,6 +5,7 @@ from pathlib import Path
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm
+import warnings
 
 from dms_utils import deep_mutational_scan
 import esm
@@ -139,10 +140,11 @@ def main():
     if args.outpath is None:
         args.outpath = f'output/{args.pdbfile[:-4]}-chain{args.chain}_scores.csv'
 
-    #model, alphabet = esm.pretrained.esm_if1_gvp4_t16_142M_UR50()
-    model, alphabet = esm.pretrained.load_model_and_alphabet(
-        '/scratch/vrs/inverse_folding_checkpoints/checkpoint_best_esm_if.pt'
-    )
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore', UserWarning)
+        model, alphabet = esm.pretrained.load_model_and_alphabet( \
+            '~/.cache/torch/hub/checkpoints/esm_if1_20220410.pt' \
+        )
 
     ##for gpu
     model = model.to('cuda:0')

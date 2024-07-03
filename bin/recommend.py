@@ -125,11 +125,10 @@ def main():
     #write dms library for target chain 
     write_dms_lib(args)
 
-    #model, alphabet = esm.pretrained.esm_if1_gvp4_t16_142M_UR50()
     with warnings.catch_warnings():
             warnings.simplefilter('ignore', UserWarning)
             model, alphabet = esm.pretrained.load_model_and_alphabet( \
-                '/scratch/vrs/inverse_folding_checkpoints/checkpoint_best_esm_if.pt' \
+                '~/.cache/torch/hub/checkpoints/esm_if1_20220410.pt' \
             )
     model = model.eval()
     
