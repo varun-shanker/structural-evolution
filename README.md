@@ -58,3 +58,22 @@ DMS experiments can be run with the command
 ```bash
 bash bin/dms.sh
 ```
+
+## Citation
+
+Please cite the following publication when referencing this work.
+
+```
+@article {Shanker-StructEvolution,
+	author = {Shanker, Varun and Bruun, Theodora and Hie, Brian and Kim, Peter},
+	title = {Unsupervised evolution of antibody and protein complexes with a structure-informed language model},
+	year = {2024},
+	doi = {10.1126/science.adk8946},
+	publisher = {AAAS},
+	URL = {https://www.science.org/doi/10.1126/science.adk8946},
+	journal = {Science}
+}
+```
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
