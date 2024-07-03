@@ -1,6 +1,6 @@
 # structural-evolution
 
-This repository scripts for running the analysis described in the paper ["Unsupervised evolution of antibody and protein complexes with a structure-informed language model"](https://www.science.org/doi/10.1126/science.adk8946).
+This repository scripts for running the analysis described in the paper ["Unsupervised evolution of protein and antibody complexes with a structure-informed language model"](https://www.science.org/doi/10.1126/science.adk8946).
 
 <p align="center">
   <img src="./structural-evolution-overview.png" alt="structural-evolution-overview"  width="700px"/>
@@ -70,6 +70,7 @@ To reproduce the analysis in the paper, first download and extract data with the
 wget https://zenodo.org/record/6968342/files/data.tar.gz
 tar xvf data.tar.gz
 ```
+To evaluate alternate sequence-only and structure-based scoring methods, follow directions [here]("https://github.com/facebookresearch/esm?tab=readme-ov-file#zs_variant") and [here]("https://github.com/dauparas/ProteinMPNN") for installation instructions.
 
 ## Citation
 
@@ -78,7 +79,7 @@ Please cite the following publication when referencing this work.
 ```
 @article {Shanker-struct-evo,
 	author = {Shanker, Varun and Bruun, Theodora and Hie, Brian and Kim, Peter},
-	title = {Unsupervised evolution of antibody and protein complexes with a structure-informed language model},
+	title = {Unsupervised evolution of protein and antibody complexes with a structure-informed language model},
 	year = {2024},
 	doi = {10.1126/science.adk8946},
 	publisher = {American Association for the Advancement of Science},
