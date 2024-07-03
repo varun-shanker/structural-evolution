@@ -39,11 +39,11 @@ To recommend mutations to antibody variable domain sequences, we have simply run
 Additional arguments:
 
 ```
---seqpath: filepath where fasta with dms library should be saved (defaults to new subdirectory in outputs)
---outpath: output filepath for scores of variant sequences
+--seqpath: filepath where fasta with dms library should be saved (defaults to new subdirectory in outputs directory)
+--outpath: output filepath for scores of variant sequences (defaults to new subdirectory in outputs directory)
 --chain: chain id for the chain of interest
---n: number of top recommendations to be output
---maxrep: maximum representation of a single site in the output recommendations (eg: maxrep = 1 is a unique set of recommendations where each mutation of a given wildtype residue is recommended at most once)
+--n: number of top recommendations to be output (default: n=10)
+--maxrep: maximum representation of a single site in the output recommendations (default: maxrep = 1 is a unique set of recommendations where each mutation of a given wildtype residue is recommended at most once)
 --upperbound: only residue positions less than the user-defined upperbound are considered for recommendation in the final output (but all positions are still conditioned for scoring)
 --order: for multichain conditioning, provides option to specify the order of chains
 --offset: integer offset or adjustment for labeling of residue indices encoded in the structure file
