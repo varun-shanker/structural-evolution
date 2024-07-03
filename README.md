@@ -32,7 +32,7 @@ To evaluate this model on a new protein or protein complex structure, run
 ```bash
 python bin/recommend.py [pdb/cif file] --chain X
 ```
-where `[pdb file]` is the file path to the pdb/cif structure file of the protein or protein complex and `[X]` is the target chain you wish to evolve. The default script will output the top n=10 predicted substitutions at k=1 unique sites, where n (`n`) and k (`maxrep`) can be modified using the arguments (see below).
+where `[pdb file]` is the file path to the pdb/cif structure file of the protein or protein complex and `[X]` is the target chain you wish to evolve. The default script will output the top `n`=10 predicted substitutions at unique residue positions (`maxrep=1`), where `n` and `maxrep` can be modified using the arguments (see below).
 
 To recommend mutations to antibody variable domain sequences, we have simply run the above script separately on the heavy and light chains.
 
@@ -65,7 +65,7 @@ tar xvf data.tar.gz
 Please cite the following publication when referencing this work.
 
 ```
-@article {Shanker-structEvo,
+@article {Shanker-struct-evo,
 	author = {Shanker, Varun and Bruun, Theodora and Hie, Brian and Kim, Peter},
 	title = {Unsupervised evolution of antibody and protein complexes with a structure-informed language model},
 	year = {2024},
