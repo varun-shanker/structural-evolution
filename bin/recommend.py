@@ -62,7 +62,7 @@ def main():
     )
     parser.add_argument(
         '--seqpath', type=str,
-        help='output filepath for dms library in fasta',
+        help='filepath where fasta of dms library should be saveda',
     )
     parser.add_argument(
         '--outpath', type=str,
@@ -99,8 +99,7 @@ def main():
     )
     parser.add_argument(
         '--offset', type=int,
-        help='maximum representation of a single site in the top recommendations  \
-              (eg: maxrep = 1 is a unique set where no wildtype residue is mutated more than once)', 
+        help='integer offset for labeling of residue indices encoded in the structure'
         default=0,
     )
     parser.add_argument(
