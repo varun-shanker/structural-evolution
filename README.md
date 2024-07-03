@@ -16,7 +16,7 @@ git clone https://github.com/varun-shanker/structural-evolution.git
 ```
 
 ```
-3. Download and unzip the model weights from ["here"](https://zenodo.org/records/12631662), then insert them in torch checkpoints.
+3. Download and unzip the model weights from [here](https://zenodo.org/records/12631662), then insert them in torch checkpoints.
 ```
 wget -P ~/.cache/torch/hub/checkpoints https://zenodo.org/records/12631662/files/esm_if1_20220410.zip
 unzip ~/.cache/torch/hub/checkpoints/esm_if1_20220410.zip
