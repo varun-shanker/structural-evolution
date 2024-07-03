@@ -1,7 +1,10 @@
 # structural-evolution
 
 This repository scripts for running the analysis described in the paper ["Unsupervised evolution of antibody and protein complexes with a structure-informed language model"](https://www.science.org/doi/10.1126/science.adk8946).
-<img width="875" alt="structural-evolution-overview" src="https://github.com/varun-shanker/structural-evolution/blob/main/structural-evolution-overview.png">
+
+<p align="center">
+  <img src="./structural-evolution-overview.png" alt="structural-evolution-overview"  width="600px"/>
+</p>
 
 ### Running the model
 
