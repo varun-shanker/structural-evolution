@@ -6,6 +6,7 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 import warnings
+import os
 
 from dms_utils import deep_mutational_scan
 import esm
@@ -95,6 +96,9 @@ def score_multichain_backbone(model, alphabet, args):
             fout.write(header + ',' + str(ll_complex) + ',' + str(ll_targetchain) + '\n')
     print(f'Results saved to {args.outpath}') 
 
+def get_model_checkpoint_path(filename):
+    # Expanding the user's home directory
+    return os.path.expanduser(f"~/.cache/torch/hub/checkpoints/{filename}")
 
 def main():
     parser = argparse.ArgumentParser(
@@ -140,14 +144,12 @@ def main():
     if args.outpath is None:
         args.outpath = f'output/{args.pdbfile[:-4]}-chain{args.chain}_scores.csv'
 
+    model_checkpoint_path = get_model_checkpoint_path('esm_if1_20220410.pt')
     with warnings.catch_warnings():
-        warnings.simplefilter('ignore', UserWarning)
-        model, alphabet = esm.pretrained.load_model_and_alphabet( \
-            '~/.cache/torch/hub/checkpoints/esm_if1_20220410.pt' \
-        )
-
-    ##for gpu
-    model = model.to('cuda:0')
+            warnings.simplefilter('ignore', UserWarning)
+            model, alphabet = esm.pretrained.load_model_and_alphabet( \
+                model_checkpoint_path \
+            )
     model = model.eval()
 
 

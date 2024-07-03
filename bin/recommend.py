@@ -5,6 +5,7 @@ from pathlib import Path
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm
+import os
 
 import esm
 
@@ -51,6 +52,10 @@ def get_top_n(args):
 
     print(f'\n Chain {args.chain}')
     print(*recs, sep='\n')
+
+def get_model_checkpoint_path(filename):
+    # Expanding the user's home directory
+    return os.path.expanduser(f"~/.cache/torch/hub/checkpoints/{filename}")
         
 def main():
     parser = argparse.ArgumentParser(
@@ -99,7 +104,7 @@ def main():
     )
     parser.add_argument(
         '--offset', type=int,
-        help='integer offset for labeling of residue indices encoded in the structure'
+        help='integer offset for labeling of residue indices encoded in the structure',
         default=0,
     )
     parser.add_argument(
@@ -124,10 +129,11 @@ def main():
     #write dms library for target chain 
     write_dms_lib(args)
 
+    model_checkpoint_path = get_model_checkpoint_path('esm_if1_20220410.pt')
     with warnings.catch_warnings():
             warnings.simplefilter('ignore', UserWarning)
             model, alphabet = esm.pretrained.load_model_and_alphabet( \
-                '~/.cache/torch/hub/checkpoints/esm_if1_20220410.pt' \
+                model_checkpoint_path \
             )
     model = model.eval()
     
