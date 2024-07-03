@@ -6,6 +6,28 @@ This repository scripts for running the analysis described in the paper ["Unsupe
   <img src="./structural-evolution-overview.png" alt="structural-evolution-overview"  width="600px"/>
 </p>
 
+### Setup/Installation
+1. Clone this repository
+```
+git clone https://github.com/varun-shanker/structural-evolution.git
+
+```
+2. Install Conda Environment and Required Dependencies
+```
+
+```
+3. Download and unzip the model weights from ["here"](https://zenodo.org/records/12631662), then insert them in torch checkpoints.
+```
+wget -P ~/.cache/torch/hub/checkpoints https://zenodo.org/records/12631662/files/esm_if1_20220410.zip
+unzip ~/.cache/torch/hub/checkpoints/esm_if1_20220410.zip
+```
+4. Navigate to repository
+```
+cd structural-evolution
+```
+
+
+
 ### Running the model
 
 To evaluate the model on a new sequence, clone this repository and run
