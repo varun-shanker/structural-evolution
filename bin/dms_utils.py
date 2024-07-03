@@ -2,19 +2,11 @@ from collections import Counter
 import datetime
 from dateutil.parser import parse as dparse
 import errno
-import math
-import matplotlib.pyplot as plt
 import numpy as np
 import os
-import pandas as pd
 import random
-import scipy
-from scipy.sparse import csr_matrix, dok_matrix
-import scipy.stats as ss
-import seaborn as sns
 import sys
 import time
-import torch
 import warnings
 
 from Bio import pairwise2

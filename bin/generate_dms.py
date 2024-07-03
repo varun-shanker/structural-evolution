@@ -6,8 +6,6 @@ import numpy as np
 import esm
 import esm.inverse_folding
 import biotite.structure
-from biotite.structure import sasa
-import matplotlib.pyplot as plt
 from collections import defaultdict
 
 
