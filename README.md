@@ -11,9 +11,10 @@ This repository scripts for running the analysis described in the paper ["Unsupe
 ```
 git clone https://github.com/varun-shanker/structural-evolution.git
 ```
-2. Install Conda Environment and Required Dependencies
+2. Install and Activate Conda Environment with Required Dependencies
 ```
-
+conda env create -f environment.yml
+conda activate struct-evo
 ```
 3. Download and unzip the model weights from [here](https://zenodo.org/records/12631662), then insert them in torch checkpoints.
 ```
