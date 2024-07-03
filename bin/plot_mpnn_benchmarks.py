@@ -23,7 +23,7 @@ cr9114_dict = {
                 'ab_name'   : 'CR9114',
                 'files'     : {
                                 'ESM-IF1':      'output/ab_mutagenesis_expts/cr9114/4fqi_ablh_scores.csv',
-                                'ProteinMPNN': 'output/ab_mutagenesis_expts/cr9114/MPNN_score_only/',
+                                'ProteinMPNN': 'output/ab_mutagenesis_expts/cr9114/mpnn/score_only/',
 
                                 },
                 'dms_df'    : pd.read_csv('data/ab_mutagenesis_expts/cr9114/cr9114_exp_data.csv', 
@@ -38,7 +38,7 @@ cr6261_dict = {
                 'ab_name'   : 'CR6261',
                 'files'     : {
                                 'ESM-IF1': 'output/ab_mutagenesis_expts/cr6261/3gbn_ablh_scores.csv',
-                                'ProteinMPNN': 'output/ab_mutagenesis_expts/cr6261/MPNN_score_only/'
+                                'ProteinMPNN': 'output/ab_mutagenesis_expts/cr6261/mpnn/score_only/'
                                 },
                 'dms_df'    : pd.read_csv('data/ab_mutagenesis_expts/cr6261/cr6261_exp_data.csv',
                             dtype={'genotype': str},
