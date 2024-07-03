@@ -6,7 +6,7 @@ This repository scripts for running the analysis described in the paper ["Unsupe
   <img src="./structural-evolution-overview.png" alt="structural-evolution-overview"  width="600px"/>
 </p>
 
-### Setup/Installation
+## Setup/Installation
 1. Clone this repository
 ```
 git clone https://github.com/varun-shanker/structural-evolution.git
@@ -26,7 +26,7 @@ unzip ~/.cache/torch/hub/checkpoints/esm_if1_20220410.zip
 cd structural-evolution
 ```
 
-### Generating Predictions
+## Generating Predictions
 
 To evaluate this model on a new protein or protein complex structure, run
 ```bash
@@ -52,7 +52,7 @@ Additional arguments:
 --nogpu: Do not use GPU even if available
 ```
 
-### Paper analysis scripts
+## Paper analysis scripts
 
 To reproduce the analysis in the paper, first download and extract data with the commands:
 ```bash
