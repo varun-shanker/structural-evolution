@@ -60,7 +60,8 @@ python bin/recommend.py examples/7mmo_abc_fvar.pdb \
     --outpath examples/7mmo_chainA_scores.csv \
     --upperbound 109 --offset 1
 ```
-Here, we use a structure of the antigen, SARS-CoV-2 receptor binding domain (RBD), in complex with variable regions of both chains of the antibody. To return recommendations for the heavy chain, we choose chain A. The fasta containing the dms library with corresponding scores file are saved at the indicated paths. To ouptut recommendations that are before the final framework region of the variable region as described in the paper, we use the upperbound of 109 (this will change for each antibody) and since the first residue is not included in the structure, we indicate an offset of 1 so that the returned mutations are properly indexed.
+In this example, we use a structure of the antigen, SARS-CoV-2 receptor binding domain (RBD), in complex with the variable regions of both chains of the antibody. To obtain recommendations specifically for the heavy chain, we specify chain A. The fasta file containing the DMS library and the output scores file are saved at the indicated paths.
+To ensure that the recommendations are limited to the variable region and exclude the final framework region, we set the upper bound to 109 (this value will vary for each antibody). Since the first residue is not included in the structure, we specify an offset of 1 to ensure the returned mutations are correctly indexed.
 
 ## Paper analysis scripts
 
