@@ -30,7 +30,7 @@ cd structural-evolution
 
 To evaluate this model on a new protein or protein complex structure, run
 ```bash
-python bin/recommend.py [pdb/cif file] --chain X
+python bin/recommend.py [pdb/cif file] --chain [X]
 ```
 where `[pdb file]` is the file path to the pdb/cif structure file of the protein or protein complex and `[X]` is the target chain you wish to evolve. The default script will output the top `n`=10 predicted substitutions at unique residue positions (`maxrep=1`), where `n` and `maxrep` can be modified using the arguments (see below).
 
