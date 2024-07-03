@@ -10,7 +10,6 @@ This repository scripts for running the analysis described in the paper ["Unsupe
 1. Clone this repository
 ```
 git clone https://github.com/varun-shanker/structural-evolution.git
-
 ```
 2. Install Conda Environment and Required Dependencies
 ```
