@@ -60,14 +60,14 @@ python bin/recommend.py examples/7mmo_abc_fvar.pdb \
     --outpath examples/7mmo_chainA_scores.csv \
     --upperbound 109 --offset 1
 ```
-In this example, we use a structure of the antigen, SARS-CoV-2 receptor binding domain (RBD), in complex with the variable regions of both chains of the antibody. To obtain recommendations specifically for the heavy chain, we specify chain A. The fasta file containing the DMS library and the output scores file are saved at the indicated paths.
-To ensure that the recommendations are limited to the variable region and exclude the final framework region, we set the upper bound to 109 (this value will vary for each antibody). Since the first residue is not included in the structure, we specify an offset of 1 to ensure the returned mutations are correctly indexed.
+In this example, we use a pdb structure file with variable regions of both chains of the antibody in complex with the antigen, SARS-CoV-2 receptor binding domain (RBD). To obtain recommendations specifically for the heavy chain, we specify chain A. The fasta file containing the library screened *in silico* and the corresponding output scores file are saved at the indicated paths.
+To limit the recommendations that are output and exclude mutations predicted in the final framework region, we set the upper bound to 109 (this value will vary for each antibody). Since the first residue is not included in the structure, we specify an offset of 1 to ensure the returned mutations are correctly indexed.
 
 ## Paper analysis scripts
 
 To reproduce the analysis in the paper, first download and extract data with the commands:
 ```bash
-wget https://zenodo.org/record/6968342/files/data.tar.gz
+wget https://zenodo.org/record/11260318/files/data.tar.gz
 tar xvf data.tar.gz
 ```
 To evaluate alternate sequence-only and structure-based scoring methods, follow directions [here](https://github.com/facebookresearch/esm?tab=readme-ov-file#zs_variant) and [here](https://github.com/dauparas/ProteinMPNN) for installation instructions.
