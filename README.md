@@ -70,7 +70,7 @@ To reproduce the analysis in the paper, first download and extract data with the
 wget https://zenodo.org/record/6968342/files/data.tar.gz
 tar xvf data.tar.gz
 ```
-To evaluate alternate sequence-only and structure-based scoring methods, follow directions ["here"](https://github.com/facebookresearch/esm?tab=readme-ov-file#zs_variant) and ["here"](https://github.com/dauparas/ProteinMPNN) for installation instructions.
+To evaluate alternate sequence-only and structure-based scoring methods, follow directions [here](https://github.com/facebookresearch/esm?tab=readme-ov-file#zs_variant) and [here](https://github.com/dauparas/ProteinMPNN) for installation instructions.
 
 ## Citation
 
