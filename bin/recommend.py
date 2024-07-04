@@ -8,7 +8,6 @@ from tqdm import tqdm
 import os
 
 import esm
-
 from dms_utils import deep_mutational_scan
 import warnings
 import pandas as pd
