@@ -4,14 +4,14 @@ from pathlib import Path
 import numpy as np
 
 import esm
-import esm.inverse_folding
+from util import load_structure, extract_coords_from_structure
 import biotite.structure
 from collections import defaultdict
 
 
 def get_native_seq(pdbfile, chain):
-    structure = esm.inverse_folding.util.load_structure(pdbfile, chain)
-    _ , native_seq = esm.inverse_folding.util.extract_coords_from_structure(structure)
+    structure = load_structure(pdbfile, chain)
+    _ , native_seq = extract_coords_from_structure(structure)
     return native_seq
     
 def write_dms_lib(args):

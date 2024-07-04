@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# # Function to run ProteinMPNN
 run_protein_mpnn() {
     python ../ProteinMPNN/protein_mpnn_run.py \
         --path_to_fasta "$1" \

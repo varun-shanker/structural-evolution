@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import os
 
 AAs = set('ACDEFGHIKLMNPQRSTVWY')
 
@@ -47,10 +48,18 @@ def parse_abysis(seq, seq_name):
         'likelihood_ratio',
     ])
 
-    df.to_csv(f'abysis_counts_{seq_name}.txt', sep='\t')
+    if any(prefix in seq_name for prefix in ['cr6261', 'cr9114', 'g6']):
+        subdirectory = seq_name.split('_')[0]
+    else:
+        subdirectory = ''
+
+    output_dir = os.path.join('output', 'ab_mutagenesis_expts', subdirectory)
+    os.makedirs(output_dir, exist_ok=True)
+
+    output_path = os.path.join(output_dir, f'abysis_counts_{seq_name}.txt')
+    df.to_csv(output_path, sep='\t')
 
 if __name__ == '__main__':
     for seq_name in seqs_abs:
-        print(seq_name)
         seq = seqs_abs[seq_name]
         parse_abysis(seq, seq_name)

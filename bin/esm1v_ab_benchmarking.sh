@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Function to run the prediction command
 run_prediction() {
-    python variant-prediction/predict.py \
+    python ../esm/examples/variant-prediction/predict.py \
         --model-location esm1v_t33_650M_UR90S_1 esm1v_t33_650M_UR90S_2 esm1v_t33_650M_UR90S_3 esm1v_t33_650M_UR90S_4 esm1v_t33_650M_UR90S_5 \
         --sequence "$1" \
         --dms-input "$2" \
@@ -14,72 +13,72 @@ run_prediction() {
 
 # CR6261
 run_prediction "EVQLVESGAEVKKPGSSVKVSCKASGGPFRSYAISWVRQAPGQGPEWMGGIIPIFGTTKYAPKFQGRVTITADDFAGTVYMELSSLRSEDTAMYYCAKHMGYQVRETMDVWGKGTTVTVSS" \
-    "structural-evolution/data/mutagenesis_expts/cr6261/cr6261_singleMuts_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/cr6261/cr6261_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/cr6261/cr6261_singleMuts_exp_data.csv" \
+    "output/ab_mutagenesis_expts/cr6261/cr6261_exp_data_maskMargLabeled.csv" \
     1
 
 # CR9114
 run_prediction "QVQLVQSGAEVKKPGSSVKVSCKSSGGTSNNYAISWVRQAPGQGLDWMGGISPIFGSTAYAQKFQGRVTISADIFSNTAYMELNSLTSEDTAVYFCARHGNYYYYSGMDVWGQGTTVTVSS" \
-    "structural-evolution/data/mutagenesis_expts/cr9114/cr9114_singleMuts_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/cr9114/cr9114_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/cr9114/cr9114_singleMuts_exp_data.csv" \
+    "output/ab_mutagenesis_expts/cr9114/cr9114_exp_data_maskMargLabeled.csv" \
     1
 
 # G6 HC
 run_prediction "EVQLVESGGGLVQPGGSLRLSCAASGFTISDYWIHWVRQAPGKGLEWVAGITPAGGYTYYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCARFVFFLPYAMDYWGQGTLVTV" \
-    "structural-evolution/data/mutagenesis_expts/g6/g6_hc_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/g6/g6Hc_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/g6/g6_hc_exp_data.csv" \
+    "output/ab_mutagenesis_expts/g6/g6Hc_exp_data_maskMargLabeled.csv" \
     1
 
 # G6 LC
 run_prediction "DIQMTQSPSSLSASVGDRVTITCRASQDVSTAVAWYQQKPGKAPKLLIYSASFLYSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQSYTTPPTFGQGTKVEIK" \
-    "structural-evolution/data/mutagenesis_expts/g6/g6_lc_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/g6/g6Lc_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/g6/g6_lc_exp_data.csv" \
+    "output/ab_mutagenesis_expts/g6/g6Lc_exp_data_maskMargLabeled.csv" \
     1
 
 # G6 HC (both chains)
 run_prediction "EVQLVESGGGLVQPGGSLRLSCAASGFTISDYWIHWVRQAPGKGLEWVAGITPAGGYTYYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCARFVFFLPYAMDYWGQGTLVTVDIQMTQSPSSLSASVGDRVTITCRASQDVSTAVAWYQQKPGKAPKLLIYSASFLYSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQSYTTPPTFGQGTKVEIK" \
-    "structural-evolution/data/mutagenesis_expts/g6/g6_hc_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/g6/g6Hc_esm1vbothchains_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/g6/g6_hc_exp_data.csv" \
+    "output/ab_mutagenesis_expts/g6/g6Hc_esm1vbothchains_exp_data_maskMargLabeled.csv" \
     1
 
 # G6 LC (both chains)
 run_prediction "EVQLVESGGGLVQPGGSLRLSCAASGFTISDYWIHWVRQAPGKGLEWVAGITPAGGYTYYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCARFVFFLPYAMDYWGQGTLVTVDIQMTQSPSSLSASVGDRVTITCRASQDVSTAVAWYQQKPGKAPKLLIYSASFLYSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQSYTTPPTFGQGTKVEIK" \
-    "structural-evolution/data/mutagenesis_expts/g6/g6_lc_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/g6/g6Lc_esm1vbothchains_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/g6/g6_lc_exp_data.csv" \
+    "output/ab_mutagenesis_expts/g6/g6Lc_esm1vbothchains_exp_data_maskMargLabeled.csv" \
     -117
 
 # CR9114 (both chains)
 run_prediction "QVQLVQSGAEVKKPGSSVKVSCKSSGGTSNNYAISWVRQAPGQGLDWMGGISPIFGSTAYAQKFQGRVTISADIFSNTAYMELNSLTSEDTAVYFCARHGNYYYYSGMDVWGQGTTVTVSSQSALTQPPAVSGTPGQRVTISCSGSDSNIGRRSVNWYQQFPGTAPKLLIYSNDQRPSVVPDRFSGSKSGTSASLAISGLQSEDEAEYYCAAWDDSLKGAVFGGGTQLTVL" \
-    "structural-evolution/data/mutagenesis_expts/cr9114/cr9114_singleMuts_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/cr9114/cr9114_esm1vbothchains_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/cr9114/cr9114_singleMuts_exp_data.csv" \
+    "output/ab_mutagenesis_expts/cr9114/cr9114_esm1vbothchains_exp_data_maskMargLabeled.csv" \
     1
 
 # CR6261 (both chains)
 run_prediction "EVQLVESGAEVKKPGSSVKVSCKASGGPFRSYAISWVRQAPGQGPEWMGGIIPIFGTTKYAPKFQGRVTITADDFAGTVYMELSSLRSEDTAMYYCAKHMGYQVRETMDVWGKGTTVTVSSQSVLTQPPSVSAAPGQKVTISCSGSSSNIGNDYVSWYQQLPGTAPKLLIYDNNKRPSGIPDRFSGSKSGTSATLGITGLQTGDEANYYCATWDRRPTAYVVFGGGTKLTVL" \
-    "structural-evolution/data/mutagenesis_expts/cr6261/cr6261_singleMuts_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/cr6261/cr6261_esm1vbothchains_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/cr6261/cr6261_singleMuts_exp_data.csv" \
+    "output/ab_mutagenesis_expts/cr6261/cr6261_esm1vbothchains_exp_data_maskMargLabeled.csv" \
     1
 
 # CR9114 (antibody + antigen)
 run_prediction "QVQLVQSGAEVKKPGSSVKVSCKSSGGTSNNYAISWVRQAPGQGLDWMGGISPIFGSTAYAQKFQGRVTISADIFSNTAYMELNSLTSEDTAVYFCARHGNYYYYSGMDVWGQGTTVTVSSQSALTQPPAVSGTPGQRVTISCSGSDSNIGRRSVNWYQQFPGTAPKLLIYSNDQRPSVVPDRFSGSKSGTSASLAISGLQSEDEAEYYCAAWDDSLKGAVFGGGTQLTVLADPGDQICIGYHANNSTEQVDTIMEKNVTVTHAQDILEKKHNGKLCDLDGVKPLILRDCSVAGWLLGNPMCDEFINVPEWSYIVEKANPVNDLCYPGDFNDYEELKHLLSRINHFEKIQIIPKSSWSSHEASLGVSSACPYQGKSSFFRNVVWLIKKNSTYPTIKRSYNNTNQEDLLVLWGIHHPNDAAEQTKLYQNPTTYISVGTSTLNQRLVPRIATRSKVNGQSGRMEFFWTILKPNDAINFESNGNFIAPEYAYKIVKKGDSTIMKSELEYGNCNTKCQTPMGAINSSMPFHNIHPLTIGECPKYVKSNRLVLATGLRNSPQRERRRKKRGLFGAIAGFIEGGWQGMVDGWYGYHHSNEQGSGYAADKESTQKAIDGVTNKVNSIIDKMNTQFEAVGREFNNLERRIENLNKKMEDGFLDVWTYNAELLVLMENERTLDFHDSNVKNLYDKVRLQLRDNAKELGNGCFEFYHKCDNECMESVRNGTYDYPQYSEEARLKREEISSGR" \
-    "structural-evolution/data/mutagenesis_expts/cr9114/cr9114_singleMuts_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/cr9114/cr9114_esm1vAbAg_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/cr9114/cr9114_singleMuts_exp_data.csv" \
+    "output/ab_mutagenesis_expts/cr9114/cr9114_esm1vAbAg_exp_data_maskMargLabeled.csv" \
     1
 
 # CR6261 (antibody + antigen)
 run_prediction "EVQLVESGAEVKKPGSSVKVSCKASGGPFRSYAISWVRQAPGQGPEWMGGIIPIFGTTKYAPKFQGRVTITADDFAGTVYMELSSLRSEDTAMYYCAKHMGYQVRETMDVWGKGTTVTVSSQSVLTQPPSVSAAPGQKVTISCSGSSSNIGNDYVSWYQQLPGTAPKLLIYDNNKRPSGIPDRFSGSKSGTSATLGITGLQTGDEANYYCATWDRRPTAYVVFGGGTKLTVLADPGDTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCKLKGIAPLQLGKCNIAGWLLGNPECDLLLTASSWSYIVETSNSENGTCYPGDFIDYEELREQLSSVSSFEKFEIFPKTSSWPNHETTKGVTAACSYAGASSFYRNLLWLTKKGSSYPKLSKSYVNNKGKEVLVLWGVHHPPTGTDQQSLYQNADAYVSVGSSKYNRRFTPEIAARPKVRDQAGRMNYYWTLLEPGDTITFEATGNLIAPWYAFALNRGSGSGIITSDAPVHDCNTKCQTPHGAINSSLPFQNIHPVTIGECPKYVRSTKLRMATGLRNIPSIQSRGLFGAIAGFIEGGWTGMIDGWYGYHHQNEQGSGYAADQKSTQNAIDGITNKVNSVIEKMNTQFTAVGKEFNNLERRIENLNKKVDDGFLDIWTYNAELLVLLENERTLDFHDSNVRNLYEKVKSQLKNNAKEIGNGCFEFYHKCDDACMESVRNGTYDYPKYSEESKLNREEIDGVSGR" \
-    "structural-evolution/data/mutagenesis_expts/cr6261/cr6261_singleMuts_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/cr6261/cr6261_esm1vAbAg_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/cr6261/cr6261_singleMuts_exp_data.csv" \
+    "output/ab_mutagenesis_expts/cr6261/cr6261_esm1vAbAg_exp_data_maskMargLabeled.csv" \
     1
 
 # G6 HC (antibody + antigen)
 run_prediction "EVQLVESGGGLVQPGGSLRLSCAASGFTISDYWIHWVRQAPGKGLEWVAGITPAGGYTYYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCARFVFFLPYAMDYWGQGTLVTVDIQMTQSPSSLSASVGDRVTITCRASQDVSTAVAWYQQKPGKAPKLLIYSASFLYSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQSYTTPPTFGQGTKVEIKGQNHHEVVKFMDVYQRSYCHPIETLVDIFQEYPDEIEYIFKPSCVPLMRCGGCCNDEGLECVPTEESNITMQIMRIKPHQGQHIGEMSFLQHNKCECRPKKD" \
-    "structural-evolution/data/mutagenesis_expts/g6/g6_hc_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/g6/g6Hc_esm1vAbAg_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/g6/g6_hc_exp_data.csv" \
+    "output/ab_mutagenesis_expts/g6/g6Hc_esm1vAbAg_exp_data_maskMargLabeled.csv" \
     1
 
 # G6 LC (antibody + antigen)
 run_prediction "EVQLVESGGGLVQPGGSLRLSCAASGFTISDYWIHWVRQAPGKGLEWVAGITPAGGYTYYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCARFVFFLPYAMDYWGQGTLVTVDIQMTQSPSSLSASVGDRVTITCRASQDVSTAVAWYQQKPGKAPKLLIYSASFLYSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQSYTTPPTFGQGTKVEIKGQNHHEVVKFMDVYQRSYCHPIETLVDIFQEYPDEIEYIFKPSCVPLMRCGGCCNDEGLECVPTEESNITMQIMRIKPHQGQHIGEMSFLQHNKCECRPKKD" \
-    "structural-evolution/data/mutagenesis_expts/g6/g6_lc_exp_data.csv" \
-    "structural-evolution/output/mutagenesis_expts/g6/g6Lc_esm1vAbAg_exp_data_maskMargLabeled.csv" \
+    "data/ab_mutagenesis_expts/g6/g6_lc_exp_data.csv" \
+    "output/ab_mutagenesis_expts/g6/g6Lc_esm1vAbAg_exp_data_maskMargLabeled.csv" \
     -117

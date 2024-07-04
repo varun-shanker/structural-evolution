@@ -7,10 +7,6 @@ from bokeh.transform import factor_cmap
 import datashader
 import holoviews as hv
 import holoviews.operation.datashader
-
-import datashader
-import holoviews as hv
-import holoviews.operation.datashader
 hv.extension("bokeh")
 
 import warnings
@@ -22,7 +18,7 @@ cr9114_dict = {
                 'files'     : {
                                 'ESM-1v Ab-Ag':      'output/ab_mutagenesis_expts/cr9114/cr9114_esm1vAbAg_exp_data_maskMargLabeled.csv',
                                 'ESM-1v Ab only':    'output/ab_mutagenesis_expts/cr9114/cr9114_esm1vbothchains_exp_data_maskMargLabeled.csv',
-                                'ESM-1v Ab VH only': 'output/ab_mutagenesis_expts/cr9114/cr9114_esm1v_exp_data_maskMargLabeled.csv',
+                                'ESM-1v Ab VH only': 'output/ab_mutagenesis_expts/cr9114/cr9114_exp_data_maskMargLabeled.csv',
                                 },
                 'dms_df'    : pd.read_csv('data/ab_mutagenesis_expts/cr9114/cr9114_exp_data.csv', 
                                 dtype = {'genotype': str},
@@ -37,7 +33,7 @@ cr6261_dict = {
                 'files'     : {
                                 'ESM-1v Ab-Ag':      'output/ab_mutagenesis_expts/cr6261/cr6261_esm1vAbAg_exp_data_maskMargLabeled.csv',
                                 'ESM-1v Ab only':    'output/ab_mutagenesis_expts/cr6261/cr6261_esm1vbothchains_exp_data_maskMargLabeled.csv',
-                                'ESM-1v Ab VH only': 'output/ab_mutagenesis_expts/cr6261/cr6261_esm1v_exp_data_maskMargLabeled.csv',
+                                'ESM-1v Ab VH only': 'output/ab_mutagenesis_expts/cr6261/cr6261_exp_data_maskMargLabeled.csv',
                                 },
                 'dms_df'    : pd.read_csv('data/ab_mutagenesis_expts/cr6261/cr6261_exp_data.csv',
                             dtype={'genotype': str},
@@ -52,7 +48,7 @@ g6LC_dict = {
                 'files'     : {
                                 'LM Ab-Ag':      'output/ab_mutagenesis_expts/g6/g6Lc_esm1vAbAg_exp_data_maskMargLabeled.csv',
                                 'LM Ab only':    'output/ab_mutagenesis_expts/g6/g6Lc_esm1vbothchains_exp_data_maskMargLabeled.csv',
-                                'LM Ab VH/VL only': 'output/ab_mutagenesis_expts/g6/g6Lc_esm1v_exp_data_maskMargLabeled.csv',
+                                'LM Ab VH/VL only': 'output/ab_mutagenesis_expts/g6/g6Lc_exp_data_maskMargLabeled.csv',
                                 },
                 'dms_df'    : pd.read_csv('data/ab_mutagenesis_expts/g6/g6_lc_exp_data.csv'),
                 'ag_columns': ['norm_binding'],
@@ -66,7 +62,7 @@ g6HC_dict = {
                 'files'     : {
                                 'LM Ab-Ag':      'output/ab_mutagenesis_expts/g6/g6Hc_esm1vAbAg_exp_data_maskMargLabeled.csv',
                                 'LM Ab only':    'output/ab_mutagenesis_expts/g6/g6Hc_esm1vbothchains_exp_data_maskMargLabeled.csv',
-                                'LM Ab VH/VL only': 'output/ab_mutagenesis_expts/g6/g6Hc_esm1v_exp_data_maskMargLabeled.csv',
+                                'LM Ab VH/VL only': 'output/ab_mutagenesis_expts/g6/g6Hc_exp_data_maskMargLabeled.csv',
                                 },
                 'dms_df'    : pd.read_csv('data/ab_mutagenesis_expts/g6/g6_hc_exp_data.csv'),
                 'ag_columns': ['norm_binding'],

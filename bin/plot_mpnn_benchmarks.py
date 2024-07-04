@@ -10,9 +10,6 @@ import holoviews.operation.datashader
 import os
 from natsort import natsorted
 
-import datashader
-import holoviews as hv
-import holoviews.operation.datashader
 hv.extension("bokeh")
 
 import warnings

@@ -12,7 +12,6 @@ for ((i=0; i<${#abs[@]}; i++)); do
 
     # Set the default chain value
     chain="H"
-
     # Special handling for 'g6' antibody
     if [[ "$ab" == "g6" ]]; then
         [[ "$ab_fasta" == *"lc"* ]] && chain="L"

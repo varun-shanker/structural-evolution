@@ -2,7 +2,6 @@ import biotite.structure
 import numpy as np
 import torch
 from typing import Sequence, Tuple, List
-
 from util import (
     load_structure,
     extract_coords_from_structure,

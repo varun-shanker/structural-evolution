@@ -7,10 +7,6 @@ from bokeh.transform import factor_cmap
 import datashader
 import holoviews as hv
 import holoviews.operation.datashader
-
-import datashader
-import holoviews as hv
-import holoviews.operation.datashader
 hv.extension("bokeh")
 
 import warnings
@@ -27,7 +23,7 @@ cr9114_dict = {
                                 'Ab-Ag':      'output/ab_mutagenesis_expts/cr9114/4fqi_ablh_scores.csv',
                                 'Ab only':    'output/ab_mutagenesis_expts/cr9114/4fqi_lh_scores.csv',
                                 'Ab VH only': 'output/ab_mutagenesis_expts/cr9114/4fqi_h_scores.csv',
-                                'ESM-1v':      'output/ab_mutagenesis_expts/cr9114/cr9114_esm1v_exp_data_maskMargLabeled.csv',
+                                'ESM-1v':      'output/ab_mutagenesis_expts/cr9114/cr9114_exp_data_maskMargLabeled.csv',
                                 'AbLang':     'output/ab_mutagenesis_expts/cr9114/cr9114_hc_ablangScores.csv',
                                 'abYsis':     'output/ab_mutagenesis_expts/cr9114/abysis_counts_cr9114_vh.txt',
                                 },
@@ -45,7 +41,7 @@ cr6261_dict = {
                                 'Ab-Ag':      'output/ab_mutagenesis_expts/cr6261/3gbn_ablh_scores.csv',
                                 'Ab only':    'output/ab_mutagenesis_expts/cr6261/3gbn_lh_scores.csv',
                                 'Ab VH only': 'output/ab_mutagenesis_expts/cr6261/3gbn_h_scores.csv',
-                                'ESM-1v':      'output/ab_mutagenesis_expts/cr6261/cr6261_esm1v_exp_data_maskMargLabeled.csv',
+                                'ESM-1v':      'output/ab_mutagenesis_expts/cr6261/cr6261_exp_data_maskMargLabeled.csv',
                                 'AbLang':     'output/ab_mutagenesis_expts/cr6261/cr6261_hc_ablangScores.csv',
                                 'abYsis':     'output/ab_mutagenesis_expts/cr6261/abysis_counts_cr6261_vh.txt',
                             },
@@ -64,7 +60,7 @@ g6LC_dict = {
                                 'Ab-Ag':      'output/ab_mutagenesis_expts/g6/2fjg_vlh_lc_scores.csv',
                                 'Ab only':    'output/ab_mutagenesis_expts/g6/2fjg_lh_lc_scores.csv',
                                 'Ab VH/VL only': 'output/ab_mutagenesis_expts/g6/2fjg_l_lc_scores.csv',
-                                'ESM-1v':      'output/ab_mutagenesis_expts/g6/g6Lc_esm1v_exp_data_maskMargLabeled.csv',
+                                'ESM-1v':      'output/ab_mutagenesis_expts/g6/g6Lc_exp_data_maskMargLabeled.csv',
                                 'AbLang':     'output/ab_mutagenesis_expts/g6/g6_lc_ablangScores.csv',
                                 'abYsis':     'output/ab_mutagenesis_expts/g6/abysis_counts_g6_vl.txt',
                                 },
@@ -81,7 +77,7 @@ g6HC_dict = {
                                 'Ab-Ag':      'output/ab_mutagenesis_expts/g6/2fjg_vlh_hc_scores.csv',
                                 'Ab only':      'output/ab_mutagenesis_expts/g6/2fjg_lh_hc_scores.csv',
                                 'Ab VH/VL only': 'output/ab_mutagenesis_expts/g6/2fjg_h_hc_scores.csv',
-                                'ESM-1v':      'output/ab_mutagenesis_expts/g6/g6Hc_esm1v_exp_data_maskMargLabeled.csv',
+                                'ESM-1v':      'output/ab_mutagenesis_expts/g6/g6Hc_exp_data_maskMargLabeled.csv',
                                 'AbLang':     'output/ab_mutagenesis_expts/g6/g6_hc_ablangScores.csv',
                                 'abYsis':     'output/ab_mutagenesis_expts/g6/abysis_counts_g6_vh.txt',
                             },
@@ -297,7 +293,6 @@ def get_g6_corr(g6Hc_dict, g6LC_dict, dropLOQ = False ):
 
         vh_and_vl_dms_df = pd.concat([vh_and_vl_dms_df, dms_df], ignore_index= True)
         
-
         conditions = list(files.keys())
 
     #
@@ -642,7 +637,6 @@ def plot_CR_scatterplots(title, files, dms_df, ag_columns, dropLOQ = False):
 
     p_exp = single_cr_scatter(plot_df, ag_columns, x= ag_columns[0], y = ag_columns[1], title = 'Experimental Cross-Reactive Binding Landscape')
 
-
     plots.append(p_exp)
     p_exp.output_backend = "svg"
 
@@ -701,8 +695,7 @@ if __name__ == '__main__':
     
     #compute with and without points on lower limit of quantitation ignored
     for dropLOQ in [False, True]:
-        method_corr_plots = []
-        bind_corr_plots = []
+
         g6_corrs = []
         all_corr_plots = []
 
@@ -711,12 +704,7 @@ if __name__ == '__main__':
                 g6Hc, g6Lc = d
                 title = g6Hc['ab_name'] + ', ' + g6Hc['expt_type']
                 g6_combined = get_g6_corr(g6Hc, g6Lc, dropLOQ= dropLOQ)
-                
-                g6_combined_method_corr = g6_combined[g6_combined['Input'].isin(['Ab-Ag', 'ESM-1v', 'AbLang', 'abYsis'])]
-                g6_combined_bind_corr = g6_combined[g6_combined['Input'].str.startswith('ab')]
 
-                method_corr_plots.append(plot_hbar(title, g6_combined_method_corr, g6Lc['palette']))
-                bind_corr_plots.append(plot_hbar(title, g6_combined_bind_corr, g6Lc['palette'], 'Target'))
                 all_corr_plots.append(plot_hbar(title, g6_combined, g6Lc['palette'], 'IF'))
 
                 #also plot scatter plots
@@ -731,11 +719,7 @@ if __name__ == '__main__':
             else:
                 corr_df = get_corr(d['ab_name'], d['files'], d['dms_df'], d['ag_columns'], dropLOQ= dropLOQ)
                 title = d['ab_name'] + ', ' + d['expt_type']
-                method_corr_df = corr_df[corr_df['Input'].isin(['Ab-Ag', 'ESM-1v', 'AbLang', 'abYsis'])]
-                bind_corr_df = corr_df[corr_df['Input'].str.startswith('Ab')]
 
-                method_corr_plots.append(plot_hbar(title, method_corr_df, d['palette']))
-                bind_corr_plots.append(plot_hbar(title, bind_corr_df, d['palette'], 'Target'))
                 all_corr_plots.append(plot_hbar(title, corr_df, d['palette'], 'IF'))
 
                 #also plot scatter plots for CR9114, CR6261
@@ -755,15 +739,7 @@ if __name__ == '__main__':
      
         all_corr_fname = f"output/ab_mutagenesis_expts/benchmarks{'_dropLOQ' if dropLOQ else ''}.html"
         bokeh.plotting.output_file(all_corr_fname)
-        bokeh.io.show(bokeh.layouts.gridplot(all_corr_plots, ncols = len(method_corr_plots)))
-
-        method_corr_fname = f"output/ab_mutagenesis_expts/benchmarks_method{'_dropLOQ' if dropLOQ else ''}.html"
-        bokeh.plotting.output_file(method_corr_fname)
-        bokeh.io.show(bokeh.layouts.gridplot(method_corr_plots, ncols = len(method_corr_plots)))
-
-        bind_corr_fname = f"output/ab_mutagenesis_expts/benchmarks_binding{'_dropLOQ' if dropLOQ else ''}.html"
-        bokeh.plotting.output_file(bind_corr_fname)
-        bokeh.io.show(bokeh.layouts.gridplot(bind_corr_plots, ncols = len(bind_corr_plots)))
+        bokeh.io.show(bokeh.layouts.gridplot(all_corr_plots, ncols = len(all_corr_plots)))
 
     compareLOQ_fname = 'output/ab_mutagenesis_expts/LOQ_comparison.html'
     bokeh.plotting.output_file(compareLOQ_fname)

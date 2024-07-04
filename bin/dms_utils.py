@@ -8,7 +8,6 @@ import random
 import sys
 import time
 import warnings
-
 from Bio import pairwise2
 from Bio import BiopythonWarning
 warnings.simplefilter('ignore', BiopythonWarning)

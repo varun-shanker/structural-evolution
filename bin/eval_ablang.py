@@ -21,11 +21,11 @@ ab_dict = dict(
 
 def eval_ablang(s, ab, chain):
     if chain == 'hc':
-        fname = 'output/mutagenesis_expts/'+ab+'/' + ab +'_hc_ablangScores.csv'
+        fname = 'output/ab_mutagenesis_expts/'+ab+'/' + ab +'_hc_ablangScores.csv'
         log_likelihoods = heavy_ablang(s, mode = 'likelihood')[0][1:-1]
         alphabet = heavy_ablang.tokenizer.vocab_to_aa
     elif chain == 'lc':
-        fname = 'output/mutagenesis_expts/'+ab+'/' + ab +'_lc_ablangScores.csv'
+        fname = 'output/ab_mutagenesis_expts/'+ab+'/' + ab +'_lc_ablangScores.csv'
         log_likelihoods = light_ablang(s, mode = 'likelihood')[0][1:-1]
         alphabet = light_ablang.tokenizer.vocab_to_aa
 
@@ -60,7 +60,6 @@ def main():
         for s,chain in zip(ab_dict[ab], ('hc','lc')):
               eval_ablang(s, ab, chain)
            
-
 
 if __name__ == '__main__':
         main()
