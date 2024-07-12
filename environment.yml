@@ -271,7 +271,7 @@ dependencies:
     - ablang==0.3.1
     - biopython==1.78
     - biotite==0.34.1
-    - fair-esm==2.0.1
+    - git+https://github.com/facebookresearch/esm.git
     - iqplot==0.3.3
     - msgpack==1.0.8
     - natsort==8.4.0
