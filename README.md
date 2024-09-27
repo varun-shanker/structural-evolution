@@ -87,6 +87,34 @@ Please cite the following publication when referencing this work.
 	journal = {Science}
 }
 ```
+## Updated recommend.py for Modeling Combinatorial Epistatic Mutations:
+### Summary
+This pull request modifies the existing `recommend.py` script to enable screening of **combinations** (#5) of beneficial substitutions, as identified from wet lab studies. Previously, the script only allowed for the screening of all possible single amino acid substitutions across the sequence (i.e., L * 19, where L is the length of the chain). These modifications allow users to input a list of beneficial substitutions and screen **combinatorial mutations**.
 
+### Key Changes
+1. **New `mutpath` Argument**:
+   - A new argument, `mutpath`, is added, which accepts a filepath to a CSV containing a column of beneficial mutations for either the heavy or light chain.
+   - **Default Value**: `None` (i.e., the default behavior continues to screen all potential (L * 19) single substitutions).
+   
+2. **Changes when `mutpath` is Provided**:
+   - The script now supports creating and screening combinations of mutations from the provided CSV.
+   
+   Specific changes include:
+   - **`create_all_combos`**: Generates combinations of mutations from the list of ``n`` mutations, where `n` ranges from 2 mutations up to `n` combined.
+   - **`create_dict_seqs`**: Produces a dictionary where keys are concatenated mutation names (e.g., `mut1_mut2`) and values are the sequences resulting from applying those combined mutations.
+   - **`write_dms_lib` (modified)**: Constructs a deep mutational scanning library with sequences incorporating the mutation combinations saved in a FASTA file. 
+   - **`get_top_n` (modified)**: Outputs the top `n` mutation combinations, sorted by log likelihood scores from largest to smallest.
+
+### Validation
+I successfully used the modified script to reproduce the 5 combinatorial mutations for the heavy chain tested in the second round of evolution for LYCoV-1404.
+
+Here is the result from reproducing the combinatorial mutations:
+![Reproduction_LYCoV1404_secround](https://github.com/user-attachments/assets/a1023e69-b56b-47e0-b88f-c46c16216617)
+
+### Example Command
+Below is the command used with the modified `recommend.py` script to validate the script:
+```bash
+python bin/recommend.py examples/7mmo_abc_fvar.pdb --chain A --outpath examples/7mmov_secround_chain_A_scores.csv --upperbound 109 --offset 1 --seqpath output/examples/LCOV_evo2-chainA_dms.fasta --mutpath beneficial_hc_mutations.csv
+```
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
